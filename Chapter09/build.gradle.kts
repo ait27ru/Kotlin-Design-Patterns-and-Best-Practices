@@ -1,7 +1,5 @@
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-
 plugins {
-    kotlin("jvm") version "1.6.0"
+    kotlin("jvm") version "1.9.21"
 }
 
 group = "me.soshin"
@@ -12,7 +10,7 @@ repositories {
 }
 
 dependencies {
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
 
     testImplementation(kotlin("test-junit"))
 }
@@ -21,6 +19,6 @@ tasks.test {
     useJUnit()
 }
 
-tasks.withType<KotlinCompile>() {
-    kotlinOptions.jvmTarget = "1.8"
+kotlin {
+    jvmToolchain(21)
 }
